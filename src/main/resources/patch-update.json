@@ -1,0 +1,7 @@
+[
+  {"op":"replace", "path":"/password", "value": "mypassword"},
+
+  {"op":"replace", "path":"/price", "value": 100}
+
+]
+
