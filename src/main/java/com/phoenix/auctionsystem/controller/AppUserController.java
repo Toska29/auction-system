@@ -36,7 +36,7 @@ public class AppUserController {
         }
     }
 
-    @GetMapping("{/appUserId}")
+    @GetMapping("/{appUserId}")
     public ResponseEntity<?> getAppUser(@PathVariable Long appUserId){
         try {
             AppUserResponseDto appUser = appUserService.findAppUserById(appUserId);
@@ -46,7 +46,7 @@ public class AppUserController {
         }
     }
 
-    @GetMapping
+    @GetMapping("/email")
     public ResponseEntity<?> getAppUserByEmail(@RequestParam(name = "email") String email){
         try {
             AppUserResponseDto appUserByEmail = appUserService.findAppUserByEmail(email);
@@ -64,7 +64,7 @@ public class AppUserController {
         return ResponseEntity.ok(allAppUsers);
     }
 
-    @PatchMapping("{/appUserId}")
+    @PatchMapping("/{appUserId}")
     public ResponseEntity<?> updateAppUserDetail(@PathVariable Long appUserId, @RequestBody JsonPatch patch){
         try {
             AppUserResponseDto updateAppUser = appUserService.updateAppUserDetail(appUserId, patch);
@@ -74,7 +74,7 @@ public class AppUserController {
         }
     }
 
-    @DeleteMapping("{/appUserId}")
+    @DeleteMapping("/{appUserId}")
     public ResponseEntity<?> removeAppUser(@PathVariable Long appUserId){
         try {
             appUserService.removeAppUser(appUserId);
